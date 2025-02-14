@@ -1,0 +1,11 @@
+{
+    "examples": [
+        {
+            "name":"Example 1",
+            "listOfProducts":[
+                "Nokia lumia 1520",
+                "Nexus 6"
+            ]
+        }
+    ]
+}
