@@ -6,6 +6,19 @@
                 "Nokia lumia 1520",
                 "Nexus 6"
             ]
+        },
+        {
+            "name":"Example 2",
+            "listOfProducts":[
+                "Samsung galaxy s6",
+                "Sony vaio i7"
+            ]
+        },
+        {
+            "name":"Example 3",
+            "listOfProducts":[
+                "MacBook air"
+            ]
         }
     ]
 }

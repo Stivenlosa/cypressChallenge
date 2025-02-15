@@ -127,8 +127,10 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
-<<<<<<< HEAD
 .pnp.*
-=======
-.pnp.*
->>>>>>> d230f5f... Uploading Project
+
+
+#reports 
+cypress/results
+cypress/assests
+mochawesome-report

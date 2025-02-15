@@ -9,8 +9,6 @@ class homePage{
         cy.visit('https://www.demoblaze.com/index.html')
     }
 
-   
-
     validateUserNameLogin(){        
         headElements.welcomeUserLabel().invoke("text").should("be.eq","Welcome demoblaze")
     }
@@ -36,7 +34,7 @@ class homePage{
             this.elements.listOfCardsAvailable().filter(":contains('"+productToValidate+"')").then(($el) => {
                 cy.wrap($el).should("be.visible")    
             });
-            this.goToPrincipalPage();
+            headerUtils.goToPrincipalPage();
             cy.wait(2000);
         })
     }
@@ -51,6 +49,17 @@ class homePage{
     }
 
     goToAddToCart(productNameToGo){
+        var itWasFound = false;
+        do{
+            this.elements.listOfCardsAvailable().then(($el) => {
+                if($el.filter(":contains('"+productNameToGo+"')").length>0){
+                 itWasFound = true;
+                }
+                else{
+                    this.clickNext();
+                }
+            })
+        }while(!itWasFound && this.itHasAnotherPageToValidate());
         this.elements.listOfCardsAvailable()
             .filter(":contains('"+productNameToGo+"')")
             .scrollIntoView()

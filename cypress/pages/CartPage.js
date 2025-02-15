@@ -3,13 +3,13 @@ class cartPage{
 
 
     elements = {        
-        listOfProductInCart : () => cy.get("tr.success")
+        listOfProductInCart : () => cy.get("tr.success"),
+        placeHolderBtn : () => cy.get("button[data-target='#orderModal']")
     }
 
 
     validateElementsAreVisibleOnCart(ListOfProductToValidate){
-        headerUtils.goToCartPage();
-        cy.wait(5000)
+        this.goToCartPage()
         this.elements.listOfProductInCart().should('have.length', ListOfProductToValidate.length)
         ListOfProductToValidate.forEach(productToValidate => {
           this.elements.listOfProductInCart()
@@ -18,6 +18,16 @@ class cartPage{
                 cy.wrap($el).should("be.visible")    
             }); 
         })
+    }
+
+    goToCartPage(){
+        headerUtils.goToCartPage();
+        cy.wait(5000)
+    }
+
+    showPlaceHolderForm(){
+        this.elements.placeHolderBtn().click();
+        cy.wait(2000)
     }
 
 

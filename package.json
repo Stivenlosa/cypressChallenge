@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "delete:reports": "rm cypress/results/* / rm mochawesome_merged.json || true",
     "cy:open": "cypress open",
-    "cy:run": "npx cypress run",
-    "mocha:merge":"npx mochawesome-merge 'cypress/results/*.json' > mochawesome.json",
-    "mocha:generate":"npx marge mochawesome.json",
+    "cy:run": "npx cypress run --headed --reporter mochawesome",
+    "mocha:merge":"npx mochawesome-merge 'cypress/results/*.json' > mochawesome_merged.json",
+    "mocha:generate":"npx marge mochawesome_merged.json",
     "clean:reports": "rm cypress/results/* || true"
   },
   "author": "",

@@ -31,10 +31,10 @@ npm install cypress --save-dev
 
 You can execute each regression test using the Cypress CLI.
 
-### Run All Tests in Headless Mode
+### Run All Tests in Headed Mode
 
 ```sh
-npx cypress run
+npm run cy:run
 ```
 
 ### Run All Tests with Cypress UI
@@ -67,7 +67,19 @@ npx cypress run --spec cypress/e2e/LoginValidations.cy.js
 
 ## Reporting
 
-Cypress provides built-in reporting, but you can integrate additional reporters like Mochawesome for enhanced test reports.
+Reports are being generated on Mocha Awesome Plugin
+
+#### Merge the Jsons File of All the test
+
+```sh
+npm run mocha:merge
+```
+
+#### Generate the HTML report
+
+```sh
+npm run mocha:generate
+```
 
 ## CI/CD Integration
 

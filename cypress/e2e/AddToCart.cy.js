@@ -2,6 +2,7 @@ import homePage from "../pages/HomePage"
 import loginPage from "../pages/LoginPage"
 import addToCartPage from "../pages/AddToCartPage"
 import cartPage from "../pages/CartPage"
+import placeHolderForm from "../pages/PlaceHolderForm"
 import {default as ExamplesToAddIntoCart} from "../data/productsToAddIntoCart.json"
 
 ExamplesToAddIntoCart.examples.forEach(example => {
@@ -16,7 +17,7 @@ ExamplesToAddIntoCart.examples.forEach(example => {
     })
 
     it('Validate the products are visibles in the page', () => {    
-      //homePage.validateProductsAreVisible(example.listOfProducts)
+      homePage.validateProductsAreVisible(example.listOfProducts)
     })
 
     it('Add products to cart', () => {    
@@ -29,6 +30,11 @@ ExamplesToAddIntoCart.examples.forEach(example => {
 
     it('Validate Elements Are visible on Cart Page', () => {          
       cartPage.validateElementsAreVisibleOnCart(example.listOfProducts)
+    })
+
+    it('Delete the cart', () => {
+      cartPage.showPlaceHolderForm();
+      placeHolderForm.fillDataForPurchase();
     })
   
   })
